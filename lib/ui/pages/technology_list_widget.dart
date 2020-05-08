@@ -13,7 +13,6 @@ class TechnologyListWidget extends StatefulWidget {
 
 class _TechnologyListWidgetState extends State<TechnologyListWidget>
     with AutomaticKeepAliveClientMixin {
-  String title = '';
   TechnologyBloc _articleBloc;
 
   @override

@@ -13,7 +13,6 @@ class BusinessListWidget extends StatefulWidget {
 
 class _BusinessListWidgetState extends State<BusinessListWidget>
     with AutomaticKeepAliveClientMixin {
-  String title = '';
   BusinessBloc _articleBloc;
 
   @override

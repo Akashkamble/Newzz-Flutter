@@ -13,7 +13,6 @@ class GeneralListWidget extends StatefulWidget {
 
 class _GeneralListWidgetState extends State<GeneralListWidget>
     with AutomaticKeepAliveClientMixin {
-  String title = '';
   GeneralBloc _articleBloc;
 
   @override
