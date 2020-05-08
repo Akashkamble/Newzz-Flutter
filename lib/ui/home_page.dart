@@ -3,8 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:newzzflutter/blocs/home/home_bloc.dart';
 import 'package:newzzflutter/constants/dimens.dart';
-import 'package:newzzflutter/constants/category.dart';
-import 'package:newzzflutter/ui/article_list_widget.dart';
+import 'package:newzzflutter/ui/pages/business_list_widget.dart';
+import 'package:newzzflutter/ui/pages/technology_list_widget.dart';
+
+import 'pages/general_list_widget.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -53,9 +55,9 @@ class _HomePageState extends State<HomePage> {
                 Expanded(
                   child: PageView(
                     children: <Widget>[
-                      ArticleListWidget(Category.general),
-                      ArticleListWidget(Category.business),
-                      ArticleListWidget(Category.technology)
+                      GeneralListWidget(),
+                      BusinessListWidget(),
+                      TechnologyListWidget()
                     ],
                     onPageChanged: (index) {
                       _homeBloc.add(UpdatePageEvent(index: index));
