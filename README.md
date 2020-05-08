@@ -1,16 +1,18 @@
-# newzzflutter
+# Newzz-Flutter
 
-News Application.
+## Screenshot
+![Webp net-resizeimage](https://user-images.githubusercontent.com/13314984/81400350-7b45c980-914a-11ea-932d-d519658155b6.png)
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+## The app built with Bloc architecture pattern and contains following packages.
+- [Bloc](https://pub.dev/packages/flutter_bloc)
 
-A few resources to get you started if this is your first Flutter project:
+- [Flutter Svg](https://pub.dev/packages/flutter_svg)
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+- [Networking](https://pub.dev/packages/http)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- [Custom Tabs](https://pub.dev/packages/flutter_custom_tabs)
+
+# Note
+This repo is missing api key for API calls.
+Get your api key from [newsapi](https://newsapi.org) and paste the apiKey in [constants.dart](https://github.com/Akashkamble/Newzz-Flutter/blob/master/lib/constants/constants.dart) file.
