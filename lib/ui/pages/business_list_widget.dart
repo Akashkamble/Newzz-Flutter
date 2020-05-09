@@ -42,6 +42,12 @@ class _BusinessListWidgetState extends State<BusinessListWidget>
                 if (state is ArticleLoadingState) {
                   return loadingWidget();
                 } else if (state is ArticleLoadedState) {
+                  if (MediaQuery.of(context).size.width > 800) {
+                    return articleGridListWidget(
+                      state.articles,
+                      ((MediaQuery.of(context).size.width) / 300).round(),
+                    );
+                  }
                   return articleListWidget(state.articles);
                 } else if (state is ArticleErrorState) {
                   return errorWidget(state.errorText);

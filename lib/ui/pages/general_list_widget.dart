@@ -19,7 +19,7 @@ class _GeneralListWidgetState extends State<GeneralListWidget>
   void initState() {
     super.initState();
     _articleBloc = BlocProvider.of<GeneralBloc>(context);
-    _articleBloc.add(FetchArticleListEvent(category : 'general'));
+    _articleBloc.add(FetchArticleListEvent(category: 'general'));
   }
 
   @override
@@ -42,6 +42,12 @@ class _GeneralListWidgetState extends State<GeneralListWidget>
                 if (state is ArticleLoadingState) {
                   return loadingWidget();
                 } else if (state is ArticleLoadedState) {
+                  if (MediaQuery.of(context).size.width > 800) {
+                    return articleGridListWidget(
+                      state.articles,
+                      ((MediaQuery.of(context).size.width) / 300).round(),
+                    );
+                  }
                   return articleListWidget(state.articles);
                 } else if (state is ArticleErrorState) {
                   return errorWidget(state.errorText);
