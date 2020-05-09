@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:newzzflutter/blocs/home/home_bloc.dart';
 import 'package:newzzflutter/constants/dimens.dart';
+import 'package:newzzflutter/ui/common_widgets/platform_svg.dart';
 import 'package:newzzflutter/ui/pages/business_list_widget.dart';
 import 'package:newzzflutter/ui/pages/technology_list_widget.dart';
 
@@ -74,6 +74,7 @@ class _HomePageState extends State<HomePage> {
       bottomNavigationBar: BlocBuilder<HomeBloc, int>(
         builder: (context, index) {
           return BottomNavigationBar(
+            type: BottomNavigationBarType.fixed,
             currentIndex: index,
             items: getBottomNavigationItems(context, index),
             onTap: (index) {
@@ -92,27 +93,27 @@ class _HomePageState extends State<HomePage> {
       BuildContext context, int index) {
     return <BottomNavigationBarItem>[
       BottomNavigationBarItem(
-        title: Text(general),
-        icon: SvgPicture.asset(
-          'assets/icons/general.svg',
+        title: SizedBox.shrink(),
+        icon: SvgWidget(
+          assetPath: 'assets/icons/general.svg',
           width: Dimen.bottomNavIconSize,
           height: Dimen.bottomNavIconSize,
           color: index == 0 ? Theme.of(context).primaryColor : Colors.black,
         ),
       ),
       BottomNavigationBarItem(
-        title: Text(business),
-        icon: SvgPicture.asset(
-          'assets/icons/business.svg',
+        title: SizedBox.shrink(),
+        icon: SvgWidget(
+          assetPath: 'assets/icons/business.svg',
           width: Dimen.bottomNavIconSize,
           height: Dimen.bottomNavIconSize,
           color: index == 1 ? Theme.of(context).primaryColor : Colors.black,
         ),
       ),
       BottomNavigationBarItem(
-        title: Text(technology),
-        icon: SvgPicture.asset(
-          'assets/icons/technology.svg',
+        title: SizedBox.shrink(),
+        icon: SvgWidget(
+          assetPath: 'assets/icons/technology.svg',
           width: Dimen.bottomNavIconSize,
           height: Dimen.bottomNavIconSize,
           color: index == 2 ? Theme.of(context).primaryColor : Colors.black,

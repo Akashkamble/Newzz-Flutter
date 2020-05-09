@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:newzzflutter/domain/model/article_response_model.dart';
+import 'package:newzzflutter/ui/common_widgets/article_card.dart';
 import 'package:newzzflutter/utils/custom_tab_utils.dart';
 
 import 'article_row_widget.dart';
 
 Widget loadingWidget() {
   return Center(
-    child: CircularProgressIndicator(),
+    child: const CircularProgressIndicator(),
   );
 }
 
@@ -18,10 +19,25 @@ Widget articleListWidget(List<Articles> articles) {
     itemBuilder: (context, index) {
       return ArticleWidget(
         article: articles[index],
-        launch: () => CustomTabHelper.launchURL(context, articles[index].url),
+        launch: (url) => CustomTabHelper.launchURL(context, url),
       );
     },
     itemCount: articles.length,
+  );
+}
+
+Widget articleGridListWidget(List<Articles> articles, int count) {
+  return GridView.builder(
+    itemCount: articles.length,
+    padding: const EdgeInsets.all(8.0),
+    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: count, crossAxisSpacing: 4.0, mainAxisSpacing: 4.0),
+    itemBuilder: (BuildContext context, int index) {
+      return ArticleCard(
+        article: articles[index],
+        launch: (url) => CustomTabHelper.launchURL(context, url),
+      );
+    },
   );
 }
 
